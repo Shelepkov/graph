@@ -1,0 +1,29 @@
+type Query {
+    users: [User],
+    ones: [One],
+    user(id: ID!): User,
+}
+
+type User {
+    id: ID!
+    name: String!
+    isBatrak:String!
+    salary:IntOrString!
+    ones(type: String):[One!]
+}
+
+type One{
+    id: ID!
+    type: String!
+    date: String!
+    userId: ID!
+}
+
+type Mutation {
+    createUser(name: String!, salary: Int!,isBatrak : Boolean): User!
+}
+
+
+scalar IntOrString
+
+
