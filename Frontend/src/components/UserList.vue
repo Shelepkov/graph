@@ -42,6 +42,7 @@
                 <div>{{ user.name }}</div>
                 <div>{{ user.salary }}</div>
                 <div>{{ user.isBatrak }}</div>
+                <div>{{ user.ones.map((one) => `${one.id} - ${one.type}`).join(',') }}</div>
             </li>
         </ul>
     </div>
@@ -71,9 +72,9 @@
                 }
             };
             
-            const {onResult} = useQuery(GET_USERS);
+            const {onResult:getUsers} = useQuery(GET_USERS);
             let users = ref([]);
-            onResult((res) => {
+            getUsers((res) => {
                 users.value = res.data.users;
             });
             return {
@@ -97,7 +98,7 @@
     
     .user-item {
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
         grid-gap: 10px;
         list-style-type: none;
         padding: 10px;

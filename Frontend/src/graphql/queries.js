@@ -7,11 +7,11 @@ export const GET_USERS = gql`
             name
             salary
             isBatrak
+            ones {
+                id
+            
+            }
         },
-        ones {
-            id
-            type
-        }
     }
 `;
 
